@@ -30,7 +30,7 @@ build(){
 
 package(){
 
-	make DESTDIR=$DESTDIR SBINDIR="/usr/bin" install
+	make DESTDIR=$DESTDIR SBINDIR="/sbin" install
 
 
 }

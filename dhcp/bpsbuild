@@ -16,6 +16,8 @@ build(){
 }
 
 package(){
+	mkdir -p $DESTDIR/sbin/
     make install DESTDIR=$DESTDIR
+    install  $SOURCEDIR/client/scripts/linux $DESTDIR/sbin/dhclient-script
 }
 
