@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+name="dhcp"
+version="4.4.3"
+description="GNU regular expression matcher"
+source="https://downloads.isc.org/isc/dhcp/4.4.3/dhcp-4.4.3.tar.gz"
+depends=""
+group="sys.apps"
+
+setup(){
+    $SOURCEDIR/configure --prefix=/usr \
+        --libdir=/usr/lib64/
+}
+
+build(){
+    make
+}
+
+package(){
+    make install DESTDIR=$DESTDIR
+}
+
