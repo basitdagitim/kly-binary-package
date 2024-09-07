@@ -4,19 +4,12 @@ mkdir /output -p
 mkdir -p /bpssource
 >index.lst
 find * -type f -name *.bps |
-	    while IFS= read file_name; do    
-	    	#tar -xf ${file_name} bpsbuild
+	    while IFS= read file_name; do
 	    	dosya="$(dirname $file_name)/bpsbuild"
 	    	version=$(cat $dosya|grep version=)
-
 	    	name=$(cat $dosya|grep name=)
 	    	depends=$(cat $dosya|grep depends=)
-	    	
 	    	echo "$name|$version|$depends|$(dirname $file_name)">>index.lst
-		#echo $(dirname $file_name)
-		#echo $dosya
-		#echo $(basename $file_name)
-		
 	    done
 cp -rf index.lst /output
 
